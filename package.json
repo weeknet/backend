@@ -21,6 +21,7 @@
     "@aws/dynamodb-data-mapper-annotations": "^0.7.2",
     "@nestjs/common": "^5.0.0",
     "@nestjs/core": "^5.0.0",
+    "aws-sdk": "^2.283.1",
     "fastify-formbody": "^2.0.0",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.0.0",

@@ -9,16 +9,7 @@ const mapper = new DataMapper({ client });
 
 @Injectable()
 export class UsersService {
-  //private readonly users: User[] = [];
-
-  //   create(user: User) {
-  //     this.users.push(user);
-  //   }
-
-  //   findAll(): User[] {
-  //     return this.users;
-  //   }
-
+  
   async create(user: UserModel): Promise<UserModel> {
     console.log("UsersService.create");
     user.createdAt = new Date();
@@ -33,12 +24,13 @@ export class UsersService {
       .catch(err => {
         console.log(err);
       });
+    console.log(user);
     return user;
   }
 
   
-   async findOne(id: string): Promise<UserModel> {
-    return `This action returns a #${id} cat`;
-    }
+  //  async findOne(id: string): Promise<UserModel> {
+  //   return `This action returns a #${id} cat`;
+  //   }
 
 }

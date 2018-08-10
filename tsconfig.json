@@ -7,12 +7,17 @@
     "noLib": false,
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    "experimentalDecorators": true,    
     "target": "es6",
     "sourceMap": true,
     "allowJs": true,
     "outDir": "./dist",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "lib": [      
+      "dom",
+      "es6",
+      "esnext.asynciterable"
+    ]
   },
   "include": [
     "src/**/*"

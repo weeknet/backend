@@ -16,6 +16,7 @@ export class UserModel {
   @JsonProperty('id', String)
   id: string;
 
+  @rangeKey()
   @attribute() email: string;
 
   @attribute() password: string;

@@ -8,7 +8,8 @@ import {
   Query,
   Param,
   Put,
-  Delete
+  Delete,
+  Bind
 } from "@nestjs/common";
 import { UpdateUserDto } from "./dto/update-user.dto";
 import { CreateUserDto } from "./dto/create-user.dto";
@@ -37,10 +38,22 @@ export class UsersController {
     return this.usersService.findAll(query.limit, query.cursor);
   }
 
-  @Get(":id")
+  @Get(":id")  
+  @Bind(Param('id'))
   async findOne(@Param("id") id) {
     return await this.usersService.findOne(id);
   }
+
+  @Get('search/query')  
+  async search(@Query() query) {
+    console.log('search calling...')
+    return await this.usersService.search(query.email, query.limit, query.cursor);
+  }
+
+  // //@Get("/search/:email")
+  // asyn findByEmail(@Param("email") email) {
+  //   return `This action updates  cat`;
+  // }
 
   // @Put(":id")
   // update(@Param("id") id, @Body() dto: UpdateUserDto) {

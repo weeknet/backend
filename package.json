@@ -25,6 +25,7 @@
     "@nestjs/common": "^5.0.0",
     "@nestjs/core": "^5.0.0",
     "aws-sdk": "^2.283.1",
+    "dynamodb": "^1.1.2",
     "fastify-formbody": "^2.0.0",
     "json2typescript": "^1.0.5",
     "reflect-metadata": "^0.1.12",

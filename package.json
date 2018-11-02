@@ -28,6 +28,7 @@
     "dynamodb": "^1.1.2",
     "fastify-formbody": "^2.0.0",
     "json2typescript": "^1.0.5",
+    "nestjs-config": "^1.2.6",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.0.0",
     "typescript": "^2.6.2"

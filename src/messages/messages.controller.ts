@@ -1,14 +1,18 @@
+import { ConfigService } from './../config/config.service';
 import { MessagesService } from './messages.service';
 import { MessageModel } from './models/message.model';
 import { HttpStatus, HttpCode } from '@nestjs/common';
 import { Controller, Post } from '@nestjs/common';
 import { Get, Param, Query, Put, Delete, Body } from '@nestjs/common';
+import { InjectConfig } from 'nestjs-config';
+import { ConfigParam, Configurable } from 'nestjs-config';
 
 
 @Controller('messages')
 export class MessagesController {
 
-  constructor(private readonly messagesService: MessagesService) {}
+  constructor(private readonly messagesService: MessagesService, @InjectConfig() private readonly config,
+  private readonly configService:ConfigService ) {}
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
@@ -38,11 +42,16 @@ export class MessagesController {
 
   @Get()
   findAll(@Query() query) {
-return `This action returns all Messages (limit: ${query.limit} ${process.env.PORT}items)`;
+    return `This action returns all Messages (limit: ${query.limit} ${process.env.PORT}items)`;
   }
 
   @Get(':id')
-  findOne(@Param('id') id) {
+  @Configurable()
+  findOne(@Param('id') id, @ConfigParam('express.port', '8080') port) {
+    const live = this.config.has('app.development');
+    console.log(live);
+    console.log(port);
+    console.log(this.configService.getPort());
     return `This action returns a #${id} Message`;
   }
 
